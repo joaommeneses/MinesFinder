@@ -3,8 +3,15 @@ import java.awt.*;
 
 public class BotaoCampoMinado extends JButton {
     private int estado;
-    public BotaoCampoMinado(){
+    private int linha;
+    private int coluna;
+
+
+    public BotaoCampoMinado(int linha, int coluna){
         this.estado = CampoMinado.TAPADO;
+        this.linha = linha;
+        this.coluna = coluna;
+
     }
 
     public void setEstado(int estado) {
@@ -18,11 +25,26 @@ public class BotaoCampoMinado extends JButton {
                 setText("");
                 setBackground(null);
                 break;
-            // Complete o código que falta …
+            case CampoMinado.DUVIDA:
+                setText("?");
+                setBackground(Color.YELLOW);
+            case CampoMinado.MARCADO:
+                setText("!");
+                setBackground(Color.RED);
+            case CampoMinado.REBENTADO:
+                setText("*");
+                setBackground(Color.ORANGE);
             default:
                 setText(String.valueOf(estado));
                 setBackground(Color.LIGHT_GRAY);
         }
     }
 
+    public int getLinha() {
+        return linha;
+    }
+
+    public int getColuna() {
+        return coluna;
+    }
 }
