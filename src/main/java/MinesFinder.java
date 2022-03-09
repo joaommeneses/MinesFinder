@@ -17,19 +17,32 @@ public class MinesFinder extends JFrame {
     private JButton nívelFácil9999Button;
     private JButton recordesButton;
 
+
     public MinesFinder(String title) {
-        super(title);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setContentPane(painelPrincipal);
-        pack();
-        //Código criado ao fazer botao direito no botao sair e create listener action listener
-        sairButton.addActionListener(this::btnSairActionPerformed);
-    }
+            super(title);
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            setContentPane(painelPrincipal);
 
-    private void btnSairActionPerformed(ActionEvent e) {
-        System.exit(0);
-    }
+            pack();
 
+            sairButton.addActionListener(this::btnSairActionPerformed);
+            jogoFácilButton.addActionListener(this::btnJogoFacilActionPerformed);
+            jogoMédioButton.addActionListener(this::btnJogoMedioActionPerformed);
+            jogoDíficilButton.addActionListener(this::btnJogoDificilActionPerformed);
+        }
+        private void btnSairActionPerformed(ActionEvent e) {
+            System.exit(0);
+        }
+        private void btnJogoFacilActionPerformed(ActionEvent e) {
+            new JanelaDeJogo();
+        }
+        private void btnJogoMedioActionPerformed(ActionEvent e) {
+            // TODO
+        }
+        private void btnJogoDificilActionPerformed(ActionEvent e) {
+            // TODO
+        }
+    
     public static void main(String[] args) {
         new MinesFinder("Mines Finder").setVisible(true);
     }
